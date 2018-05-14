@@ -1,0 +1,181 @@
+﻿<Page x:Class="Account.BasicPage1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="using:Account"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+      mc:Ignorable="d">
+
+    <Grid x:Name="LayoutRoot" Margin="0,0,-0.333,0">
+
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition />
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!--  Панель заголовка  -->
+        <StackPanel Grid.Row="0" Margin="19,0,0,0">
+            <TextBlock Margin="0,12,0,0"
+                       Style="{ThemeResource TitleTextBlockStyle}"
+                       Text="РЕЗУЛЬТАТЫ РАССЧЁТА" />
+        </StackPanel>
+
+        <!--  TODO: Содержимое должно размещаться в следующей сетке  -->
+        <Grid x:Name="ContentRoot"
+              Grid.Row="1"
+              Margin="19,9.167,10,10">
+            <TextBlock x:Name="tbl1"
+                       Width="170"
+                       Height="29"
+                       Margin="25,28,0,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       FontSize="22"
+                       Text="Приход = "
+                       TextWrapping="Wrap" />
+            <TextBlock Width="108"
+                       Height="34"
+                       Margin="267,79,0,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       FontSize="18"
+                       Foreground="#FF5DF58D"
+                       IsDoubleTapEnabled="False"
+                       IsHoldingEnabled="False"
+                       IsRightTapEnabled="False"
+                       IsTapEnabled="False"
+                       MaxLines="1"
+                       RenderTransformOrigin="0.524,0.493"
+                       TextAlignment="Justify"
+                       TextWrapping="Wrap">
+                <Run Text="Значение" />
+            </TextBlock>
+            <TextBlock Width="108"
+                       Height="34"
+                       Margin="375,79,0,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       FontSize="18"
+                       Foreground="#FF5DF58D"
+                       IsDoubleTapEnabled="False"
+                       IsHoldingEnabled="False"
+                       IsRightTapEnabled="False"
+                       IsTapEnabled="False"
+                       MaxLines="1"
+                       RenderTransformOrigin="0.524,0.493"
+                       TextAlignment="Justify"
+                       TextWrapping="Wrap">
+                <Run Text="Разница" />
+            </TextBlock>
+            <TextBlock Width="48"
+                       Height="34"
+                       Margin="483,79,0,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       FontSize="18"
+                       Foreground="#FF5DF58D"
+                       IsDoubleTapEnabled="False"
+                       IsHoldingEnabled="False"
+                       IsRightTapEnabled="False"
+                       IsTapEnabled="False"
+                       MaxLines="1"
+                       RenderTransformOrigin="0.524,0.493"
+                       TextAlignment="Justify"
+                       TextWrapping="Wrap">
+                <Run Text="Доп." />
+            </TextBlock>
+
+            <ListView x:Name="LV" Margin="25,118,12,59">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Width="553">
+                            <TextBlock Width="216"
+                                       Height="29"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       FontSize="16"
+                                       Text="{Binding WorkName}"
+                                       TextWrapping="Wrap" />
+                            <TextBlock x:Name="tbl32"
+                                       Width="88"
+                                       Height="29"
+                                       Margin="239,0,0,0"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       FontSize="16"
+                                       Text="{Binding value}"
+                                       TextWrapping="Wrap" />
+                            <TextBlock x:Name="tbl33"
+                                       Width="95"
+                                       Height="29"
+                                       Margin="348,0,0,0"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       FontSize="16"
+                                       Text="{Binding p_value}"
+                                       TextWrapping="Wrap" />
+                            <TextBlock x:Name="tbl34"
+                                       Width="93"
+                                       Height="29"
+                                       Margin="460,0,0,0"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       FontSize="16"
+                                       Text="{Binding volume}"
+                                       TextWrapping="Wrap" />
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <AppBarButton Margin="246,0,0,-17"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Bottom"
+                          Click="AppBarButton_Click_1"
+                          Icon="Accept" />
+
+
+            <ComboBox x:Name="CB1"
+                      Width="198"
+                      Height="61"
+                      Margin="45,0,0,-3"
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Bottom"
+                      VerticalContentAlignment="Bottom"
+                      IsSynchronizedWithCurrentItem="False"
+                      SelectedValuePath="">
+                <ComboBoxItem Height="41"
+                              Content="рз №1"
+                              FontSize="13" />
+                <ComboBoxItem Height="41"
+                              Content="рз №2"
+                              FontSize="13" />
+                <ComboBoxItem Height="41"
+                              Content="рз №3"
+                              FontSize="13" />
+                <ComboBoxItem Height="41"
+                              Content="рз №4"
+                              FontSize="13" />
+                <ComboBoxItem Height="41"
+                              Content="П1"
+                              FontSize="13" />
+                <ComboBoxItem Height="41"
+                              Content="П3"
+                              FontSize="13" />
+                <ComboBoxItem Height="41"
+                              Content="П5"
+                              FontSize="13" />
+
+
+            </ComboBox>
+
+
+        </Grid>
+    </Grid>
+</Page>
